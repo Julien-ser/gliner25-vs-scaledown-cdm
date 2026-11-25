@@ -1,0 +1,6 @@
+# CPU-only PyTorch from the official CPU index — a plain install of
+# gliner2[local] pulls the 539 MB CUDA wheel even without a GPU.
+# The +cpu build sorts above the plain release, so pip prefers it.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0+cpu; sys_platform == "linux"
+gliner2[local]==2.2.0

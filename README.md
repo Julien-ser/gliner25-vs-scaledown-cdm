@@ -1,31 +1,36 @@
 # GLiNER2.5 vs ScaleDown CDM — free local model, same test
 
-Run the exact Constrained Decoding Model (CDM) example inputs — 4 support
-tickets and invoice #INV-20817 — through GLiNER2.5-small locally, no API
-keys, no paid service, and compare line-by-line against ScaleDown's
+Can a free, local, open-weight model do the job of a paid Constrained
+Decoding Model (CDM) API? This project runs the exact inputs from
+ScaleDown's CDM example — 4 support tickets and invoice #INV-20817 —
+through **GLiNER2.5-small** (Fastino, 74M params, Apache 2.0) running
+locally on CPU, and compares the output line-by-line against ScaleDown's
 published Classify / Extract numbers.
 
-## Run it
+No API keys. No paid service. No network needed after the model download.
 
-CPU-only PyTorch **first** — `pip install "gliner2[local]"` on its own
-pulls the 539 MB CUDA PyTorch wheel, which failed here at 257 MB.
-Full install steps: see `README_CPU_INSTALL.md`.
+## Quickstart
+
+Requires Python 3.10+.
 
 ```bash
+git clone https://github.com/Julien-ser/gliner25-vs-scaledown-cdm.git
+cd gliner25-vs-scaledown-cdm
 python3 -m venv .venv
-source .venv/bin/activate
-pip install torch --index-url https://download.pytorch.org/whl/cpu
-pip install "gliner2[local]"
-python3 run_gliner.py   # writes gliner_results.json
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python3 run_gliner.py            # writes gliner_results.json
 ```
 
-Model: `fastino/gliner2.5-small-v1` (74M, English, fast on CPU).
-No network needed after the model download.
+`requirements.txt` pulls CPU-only PyTorch from the PyTorch CPU index.
+That matters: a plain `pip install "gliner2[local]"` drags in the
+539 MB CUDA PyTorch wheel even on machines without a GPU.
 
-## Results — run 2026-11-24 on julienlab (CPU)
+## Results — actual run, 2026-11-24 (CPU)
 
-Python 3.14.7, torch 2.15.0+cpu, gliner2 2.2.0, ~23 s total.
-Full raw output: Vault `Muse/raw/2026-11-24_gliner25-results.md`.
+Python 3.14.7 · torch 2.15.0+cpu · gliner2 2.2.0 ·
+`fastino/gliner2.5-small-v1` · ~23 s total.
+Raw output from this run: [`gliner_results.json`](gliner_results.json).
 
 ### Classify — 0.8 cutoff, below it goes to human review
 
@@ -62,5 +67,10 @@ scores (t3 at 0.562 → review) earn their keep.
 ## Files
 
 - `run_gliner.py` — the test: same tickets + invoice as ScaleDown's example
-- `README_CPU_INSTALL.md` — CPU-first install guide + ScaleDown numbers to compare against
-- `gliner_results.json` — written by the script on each run (not committed)
+- `requirements.txt` — pinned deps, CPU-only PyTorch index
+- `gliner_results.json` — raw output of the 2026-11-24 run above
+  (the script overwrites it on each run)
+
+## License
+
+MIT — see [LICENSE](LICENSE).

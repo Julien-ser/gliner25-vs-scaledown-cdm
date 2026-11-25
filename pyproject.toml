@@ -1,0 +1,12 @@
+[project]
+name = "gliner25-vs-scaledown-cdm"
+version = "1.0.0"
+description = "GLiNER2.5-small (free, local) vs ScaleDown CDM on the same classification/extraction test — with real run results"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Julien Serbanescu" }]
+dependencies = ["gliner2[local]==2.2.0"]
+
+[project.urls]
+Repository = "https://github.com/Julien-ser/gliner25-vs-scaledown-cdm"

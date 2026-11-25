@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Run the exact CDM example inputs through GLiNER2.5-small locally.
 
-Same tickets and invoice as ~/workspace/cdm_example.py, so results can be
-compared directly to ScaleDown's published Classify/Extract numbers.
+Same tickets and invoice as ScaleDown's published CDM example, so results
+can be compared directly to ScaleDown's published Classify/Extract numbers.
 No API keys, no network after the model download.
 """
 import json, time, sys

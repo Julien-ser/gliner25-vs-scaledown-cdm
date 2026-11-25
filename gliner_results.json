@@ -1,0 +1,94 @@
+{
+  "model": "fastino/gliner2.5-small-v1",
+  "classify": [
+    {
+      "id": "t1",
+      "text": "I was charged twice for my subscription this month",
+      "top": "billing",
+      "confidence": 0.9940849819730226,
+      "probabilities": {
+        "billing": 0.9940849819730226,
+        "bug": 0.0007628343380672352,
+        "account": 0.0042095114229069594,
+        "other": 0.0009426722660031036
+      },
+      "feasible": true
+    },
+    {
+      "id": "t2",
+      "text": "the export button does nothing when I click it",
+      "top": "bug",
+      "confidence": 0.9674764569696932,
+      "probabilities": {
+        "billing": 0.004036161640828808,
+        "bug": 0.9674764569696932,
+        "account": 0.008690883138259123,
+        "other": 0.019796498251218878
+      },
+      "feasible": true
+    },
+    {
+      "id": "t3",
+      "text": "password reset email never arrives",
+      "top": "bug",
+      "confidence": 0.8260254797625541,
+      "probabilities": {
+        "billing": 0.01430090347203483,
+        "bug": 0.8260254797625541,
+        "account": 0.11138642618194204,
+        "other": 0.04828719058346894
+      },
+      "feasible": true
+    },
+    {
+      "id": "t4",
+      "text": "any good pasta recipes?",
+      "top": "other",
+      "confidence": 0.45691688500205396,
+      "probabilities": {
+        "billing": 0.05821536001066259,
+        "bug": 0.3506412006177416,
+        "account": 0.13422655436954176,
+        "other": 0.45691688500205396
+      },
+      "feasible": true
+    }
+  ],
+  "extract": {
+    "entities": {
+      "vendor": [
+        {
+          "text": "Fenwick & Daughters Ltd",
+          "confidence": 0.984138548374176,
+          "start": 28,
+          "end": 51
+        }
+      ],
+      "total_due": [
+        {
+          "text": "$5,351.88",
+          "confidence": 0.9995214939117432,
+          "start": 134,
+          "end": 143
+        }
+      ],
+      "po_number": [],
+      "bill_to": [
+        {
+          "text": "Lakeshore Fabrication Co.",
+          "confidence": 0.98054438829422,
+          "start": 178,
+          "end": 203
+        }
+      ],
+      "invoice_number": [
+        {
+          "text": "INV-20817",
+          "confidence": 0.9477779269218445,
+          "start": 9,
+          "end": 18
+        }
+      ]
+    }
+  }
+}
