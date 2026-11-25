@@ -41,6 +41,8 @@ Raw output from this run: [`gliner_results.json`](gliner_results.json).
 | t3 "password reset email never arrives" | account 0.562 → REVIEW | bug **0.826** | **mismatch — confidently wrong** |
 | t4 "any good pasta recipes?" | other 0.982 | other **0.457** | same label, much lower confidence |
 
+![Classify confidence — ScaleDown vs GLiNER2.5-small](assets/classify_confidence.png)
+
 ### Extract — invoice #INV-20817
 
 | field | ScaleDown | GLiNER2.5-small |
@@ -53,6 +55,8 @@ Raw output from this run: [`gliner_results.json`](gliner_results.json).
 For contrast, ScaleDown's own LLM-with-JSON-schema run invented a
 `po_number` (`"null"` as a string, then the invoice number `INV-20817`).
 GLiNER passed that no-hallucination test; the strict-JSON LLM did not.
+
+![Extract confidence — total_due](assets/extract_total_due.png)
 
 ## Takeaway
 
